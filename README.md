@@ -32,7 +32,8 @@ HTML files of the project. The file also requires the middleware created for che
 Public (folder):
 
 	The public folder contains three html files and two folders. The html files
-proved the format and structure that allow the user to provide input and navigate the application. The stylesheets folder contains CSS styling code for the front-end and the js folder contains the client side JavaScript code, which provides functionality.
+proved the format and structure that allow the user to provide input and
+navigate the application. The stylesheets folder contains CSS styling code for the front-end and the js folder contains the client side JavaScript code, which provides functionality.
 	The signup.html file includes a navbar and a form with two inputs that
 enable a user to input their email and a desired password. The form also includes a button as a signup event. At the bottom of the page, there is a link to the login page to redirect existing users. Members.html provides a navigation bar with a link to the logout page. It also includes a large dynamic header to welcome the user by their name. Login.html includes a navigation bar at the top and a single form for an existing user to provide the email and password associated with their account. At the bottom of the page, there is a link to the signup page to redirect new users.
 	The style.css in the stylesheets folder applies a margin-top of 50 pixels to
@@ -40,12 +41,10 @@ the signup and login forms on their respective html pages.
 	Signup.js file within the js folder first references the signup form as well as
 the user email and password inputs. Then, when there is a click event for the signup button we check that the email and password inputs were not empty. If a user and password are present, the signUpUser function is run. This function performs a post to the signup route. If it is successful, then the user is directed to the members page. If not, errors are logged and an alert is thrown. The members.js file performs a GET request to determine what user is logged in then updates the associated html page. Login.js first refences the login form and its email and password inputs. Then, when the form is submitted, it validates if an email and password were provided. If an email and password are present, the loginUser function is run and the form inputs are cleared. The loginUser function performs a post to the "api/login" route and if it is successful, the user is redirected to the members page. If there is an error, an error is logged.
 
+
 models (folder):
 
 The models folder includes two files index.js and user.js. The user.js file brings in and requires bcrypt for password hashing. A User model is then defined and created. The user email and password must be a string and cannot be null. Then a User model method  is created to verify a password provided by a user against the hashed password that is stored in the database. Hooks automatically run their methods to hash a new password before a user is created. Then the User is returned. The models/Index.js file requires existing utilities like fileshare, uses the path.basename() method to return the filename part of a file path to use with functions, and uses environment variables to manage database connection.  It requires the relative path to config.json in the config folder for sequalize data management. Then a db object is created and exported at the end of the file.
- 
-
-path.basename() method returns the filename part of a file path.
 
 Dependent files:
 
