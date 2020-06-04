@@ -46,6 +46,15 @@ models (folder):
 
 The models folder includes two files index.js and user.js. The user.js file brings in and requires bcrypt for password hashing. A User model is then defined and created. The user email and password must be a string and cannot be null. Then a User model method  is created to verify a password provided by a user against the hashed password that is stored in the database. Hooks automatically run their methods to hash a new password before a user is created. Then the User is returned. The models/Index.js file requires existing utilities like fileshare, uses the path.basename() method to return the filename part of a file path to use with functions, and uses environment variables to manage database connection.  It requires the relative path to config.json in the config folder for sequalize data management. Then a db object is created and exported at the end of the file.
 
+Config (folder):
+
+The config folder contains two files and a folder, config.json and passport.js. The middleware additionally contains the file isAuthenticated.js.
+	passport.js first requires the passport package and its strategy. It is
+then stated that local strategy should be used where user login with email and password occur. The user will sign in with email not username. The following function initiates the sign in process when a user tries to sign in. Then the file checks for no user for a given email and for the condition where user and email are recognized but an incorrect password is provided. In both cases, the user is informed of the incorrect or missing information. If both conditions are passed, then the user is returned. passport.serializeUser provides the application with the capability to serialize and deserialize  that is needed for user management. The particulars of this process are beyond the scope of this walkthrough. At the end of the file, passport is exported. The config.json file includes developmet, test, and production, data as objects. This helps to manage the user data with the mysql database.
+	Is Authenticated.js in the middleware folder contains middleware for
+restricting the routes that a user can visit depending on their logged in status. If the user is logged in, then they can access the restricted route they requested. If the user is not logged in, they are redirected to the login page rather than the restricted target page they requested.
+
+
 Dependent files:
 
 Api-routes.js is requires the models folder. a button to sign-up or This page also provides the user with a link to login if they are an existing user.
@@ -57,3 +66,15 @@ he members.html file requires js/members.js in the public folder for functionali
 The login.html file requires js/login.js in the public folder for functionality. This file also uses style.css for applying styling to its form.
 	
 Index.js in models requires the relative path to config.json in the config folder.
+
+config/passport.js requires the models folder.
+
+
+Potential changes to this project:
+
+A potential change that might improve the application is increased modularization. The routes and the dedicated functions that are used for each route can be managed with separate files so future changes and troubleshooting is more efficient. The application could also use additional CSS within the stylesheets folder as the visual aspects  of the user experience for personalized applications can have significant implications for an applications overall success and use.
+
+
+Questions:
+
+How does the underlying process of passport.serializeUser work?
