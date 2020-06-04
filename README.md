@@ -24,7 +24,6 @@ If no package.json is present initialize setup with npm init -y command in node.
 Routes (folder):
 
 The routes folder is used to contain and organize the different dedicated routes for the project. 
-
 	The api-routes file manages the routes used for user authentication. It
 first requires the models folder and passport package as we've configured since the route functions are dependent on them. The routes for functions follow the convention where the base url route is followed by /api, followed by a term relative to the function created.The module exports a function that uses the passport authenticate middleware with a local strategy. If the user has the correct login information then they access the members page. If not, the user receives an error. The route for signup uses the sequalize user model to automatically hash and store a users password. If a user is created successfully, then they are directed to the login route. If not, the user is sent an error.The logout route is used to log a user out once logged in. The user_data route is used to retrieve user information so it can be used on the front-end of the application. An if else statement is used so that if the user is not logged in an empty object will be returned. Otherwise the user email and id will be returned.
 	The html-routes.js requires path so it can use routes relative routes to
@@ -49,12 +48,13 @@ The models folder includes two files index.js and user.js. The user.js file brin
 path.basename() method returns the filename part of a file path.
 
 Dependent files:
-	Api-routes.js is requires the models folder. a button to sign-up or This page also provides the user with a link to login if they are an existing user.
+
+Api-routes.js is requires the models folder. a button to sign-up or This page also provides the user with a link to login if they are an existing user.
 	
-	The signup.html file requires js/signup.js in the public folder for functionality. This file also uses style.css for applying styling to its form.
+The signup.html file requires js/signup.js in the public folder for functionality. This file also uses style.css for applying styling to its form.
 	
-	The members.html file requires js/members.js in the public folder for functionality.
+he members.html file requires js/members.js in the public folder for functionality.
 	
-	The login.html file requires js/login.js in the public folder for functionality. This file also uses style.css for applying styling to its form.
+The login.html file requires js/login.js in the public folder for functionality. This file also uses style.css for applying styling to its form.
 	
-	Index.js in models requires the relative path to config.json in the config folder.
+Index.js in models requires the relative path to config.json in the config folder.
