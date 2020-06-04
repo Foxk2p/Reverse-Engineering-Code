@@ -31,10 +31,9 @@ HTML files of the project. The file also requires the middleware created for che
 
 Public (folder):
 
-	The public folder contains three html files and two folders. The html files
-proved the format and structure that allow the user to provide input and
+The public folder contains three html files and two folders. The html files proved the format and structure that allow the user to provide input and
 navigate the application. The stylesheets folder contains CSS styling code for the front-end and the js folder contains the client side JavaScript code, which provides functionality.
-	The signup.html file includes a navbar and a form with two inputs that
+The signup.html file includes a navbar and a form with two inputs that
 enable a user to input their email and a desired password. The form also includes a button as a signup event. At the bottom of the page, there is a link to the login page to redirect existing users. Members.html provides a navigation bar with a link to the logout page. It also includes a large dynamic header to welcome the user by their name. Login.html includes a navigation bar at the top and a single form for an existing user to provide the email and password associated with their account. At the bottom of the page, there is a link to the signup page to redirect new users.
 	The style.css in the stylesheets folder applies a margin-top of 50 pixels to
 the signup and login forms on their respective html pages.
